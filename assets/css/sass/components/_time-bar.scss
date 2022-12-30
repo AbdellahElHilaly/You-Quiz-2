@@ -1,0 +1,19 @@
+.raduis{
+  border-radius: 10px;
+}
+#progressTime {
+  @extend .raduis;
+  display: flex;
+  align-items: center;
+    width: 100%;
+    height: 15px;
+    background-color: $headline-color;
+    margin-top: 30px;
+  }
+  
+  #BarTime {
+    width:100%;
+    height: 100%;
+    background-color:$color-primary;
+    @extend .raduis;
+  }

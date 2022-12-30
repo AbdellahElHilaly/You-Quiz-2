@@ -1,0 +1,76 @@
+@import '../variables/colors';
+@import url(https://fonts.googleapis.com/css?family=Poiret+One);
+
+@mixin button-bg($color) {
+  &:hover {
+    background:darken($color,8%);
+  }
+  &:active {
+    background:darken($color,25%);
+  } 
+  &:focus{
+    background: $color;
+  }
+}
+
+.button {
+  background-color: $button-color-2;
+  border-radius: 15px;
+  border: 2px $background-color solid;
+  font-weight: bolder;
+  font-size: 1.5vw;
+  text-decoration:none;
+  width: 15vw;
+  padding:5px 5px;
+  margin: 2px 5px;
+  font-family: 'Poiret One', cursive;
+}
+
+.button-primary {
+  @include button-bg($button-color-2);
+}
+
+.button-primary-dark {
+  @include button-bg($button-color);
+}
+
+.button-secondary{
+  @include button-bg($button-color);
+}
+
+.button-secondary-dark {
+  @include button-bg($button-color);
+}
+.button-start-quize{
+  display: none;
+  background-color: orangered;
+  min-width: 10vw;
+  margin: auto;
+  height: auto;
+  @include text-style();
+  border-radius: 10px;
+  border: 5px $strock-color solid;
+  margin-top: 25vh;
+  &:hover{
+    background-color: darken($color: orangered, $amount: 5);
+  }
+  &:active{
+    background-color: darken($color: orangered, $amount: 15);
+    border-color: $main-color;
+  }
+
+  @media (max-width : $max-mobile){
+    min-width: 30vw;
+  }
+}
+
+.try-agin{
+  margin: 0;
+  padding: 0;
+  font-size: 1.25vw;
+  @media (max-width : $max-mobile){
+    font-size: 3.25vw;
+
+  }
+}
+
