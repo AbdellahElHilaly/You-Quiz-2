@@ -15,8 +15,9 @@
 </div>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="../../js/helper/variable.js"></script>
-<script src="../../js/classes/question.js"></script>
-<script src="../../js/data/data.js"></script>
+<!-- <script src="../../js/classes/question.js"></script> -->
+<!-- <script src="../../js/data/data.js"></script> -->
+<script src="../../js/data/questions.js"></script>
 <script src="../../js/quize/show.js"></script>
 <script src="../../js/quize/time-bar.js"></script>
 <script src="../../js/helper/functions.js"></script>

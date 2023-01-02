@@ -50,7 +50,7 @@
 
         public function select($where=NULL) {
             // select the data from the database
-            $query = "SELECT * FROM $this->table $where";
+            $query = "SELECT * FROM $this->table $where ORDER BY RAND()";
             $stmt = $this->pdo->prepare($query);
             $stmt->execute();
             return $stmt->fetchAll(PDO::FETCH_OBJ);

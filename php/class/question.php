@@ -85,8 +85,32 @@ class Question extends MySQLDatabase{
         ];
     }
 
-    public function get(){
-        $datas = $this->select();
+    public function getQuizData($index){
+        if($index){
+            $data = array(
+                "id" => $this->id,
+                "question" => $this->question,
+                "repons" =>  $this->repons,
+                "R_C_Indis" =>  $this->R_C_Indis,
+                "corectRepons" =>  $this->corectRepons,
+                "difficulty" =>  $this->deficulty,
+            );
+            return $data;
+        }
+        else {
+            $data = array(
+                "id" => $this->id,
+                "question" => $this->question,
+                "repons" =>  $this->repons,
+                "difficulty" =>  $this->deficulty,
+            );
+            return $data;
+        }
+        
+    }
+
+    public function get($where = NULL){
+        $datas = $this->select($where);
         $questions  = array();
         $i = 0;
         foreach($datas as $data){
@@ -98,49 +122,6 @@ class Question extends MySQLDatabase{
         return $questions;
     }
 }
-
-// $repons = array("Amazon EC2 costs are billed on a monthly basis",
-//     "Users retain full administrative access to their Amazon EC2 instances", 
-//     "Amazon EC2 instances can be launched on demand when needed", 
-//     "Users can permanently run enough instances to handle peak workloads"
-// );
-// $question = new Question("Why is AWS more economical than traditional data centers for applications with varying compute workloads?", $repons, 2, "The ability to launch instances on demand when needed allows users to launch and terminate instances in
-// response to a varying workload. This is a more economical practice than purchasing enough on-premises servers
-// to handle the peak load", 1);
-// $question->insert();
-
-
-// echo "<pre>";
-// print_r($question);
-// echo "</pre>";
-
-
-// $question->insert();
-
-// $question->update('WHERE id = ' . ($question->id));
-
-// $id = $question->id;
-
-// $question->print($question->id);
-
-// $question = new Question()      ;
-// $data = $question->select()     ;
-// $question->getObject($data[0])     ;
-// $data = $question->delete()     ;
-
-
-// echo "<pre>";
-// print_r($question->get());
-// echo "</pre>";
-
-
-// print_r($question->getData());
-
-// $question->insert();
-
-
-
-
 
 
 

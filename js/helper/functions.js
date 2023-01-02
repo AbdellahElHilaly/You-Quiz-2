@@ -38,3 +38,74 @@ function audioPlay(path){
     
 }
 
+
+
+function getQestions(){
+    // Create a new XMLHttpRequest object
+    let  xhr = new XMLHttpRequest();
+    // Set the endpoint URL
+    let  url = "../../php/controller/crud.php";
+    // Set the HTTP method to POST
+    xhr.open("POST", url);
+    // Set the content type to application/x-www-form-urlencoded
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    // Send the request with the data
+    // maydata = JSON.stringify(questionsJSON);
+    xhr.send("get-question");
+    xhr.onload = function() {
+        if (xhr.status == 200) {
+            // Process the response
+            let response = xhr.responseText;
+            let qst = JSON.parse(response);
+            questions = qst;
+            console.log(questions);
+        }
+    };
+}
+
+let uniquQuestion;
+
+function getQestionWithResponce(id){
+    
+    // Create a new XMLHttpRequest object
+    let  xhr = new XMLHttpRequest();
+
+    // Set the endpoint URL
+    let  url = "../../php/controller/crud.php";
+
+    // Set the HTTP method to POST
+    xhr.open("POST", url , false);
+
+    // Set the content type to application/x-www-form-urlencoded
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+    // Send the request with the data
+    maydata = JSON.stringify(questionsJSON);
+    const data = {
+        "get-respons": "",
+        "id": id,
+    };
+    
+
+    xhr.onload = function() {
+        if (xhr.status == 200) {
+            // Process the response
+            let response = xhr.responseText;
+            uniquQuestion = JSON.parse(response);
+            
+            
+        }
+    };
+
+
+    xhr.send(encodeForAjax(data));
+
+    return uniquQuestion;
+}
+
+function encodeForAjax(data) {
+    return Object.keys(data).map(function(k) {
+        return encodeURIComponent(k) + '=' + encodeURIComponent(data[k])
+    }).join('&')
+}
+

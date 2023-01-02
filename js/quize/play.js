@@ -29,6 +29,9 @@ function intialaze(){
     questionIndex = 0;
     arrayWrongResponsIndexs.length = "";
     questions = shuffleObjArray(questions);
+    getQestions();
+
+    
 }    
 
 
@@ -47,8 +50,13 @@ function play(){
     }
 }
 
+
 function reponsAnimation(i , index){
     index--;
+
+    let questionWithRespos = getQestionWithResponce(questions[index].id);
+    questions[index] = questionWithRespos;
+    console.log(questions);
     if(i == questions[index].R_C_Indis){
         animationCard(i , true);
         calculeResult();
@@ -64,7 +72,6 @@ function reponsAnimation(i , index){
 
 
 function nextQuestion(){
-    console.log(questionIndex);
     if(questionIndex < questions.length ) {
         remply(questionIndex);
         moveBarTime(getDely(questionIndex) , questionIndex);
@@ -79,6 +86,3 @@ function activeCards(){
     for(btn of buttonCards) btn.disabled = false;
     for(let j=0 ; j<4 ; j++) cards[j].setAttribute("class", 'card carde-'+(j+1));
 }
-
-
-
