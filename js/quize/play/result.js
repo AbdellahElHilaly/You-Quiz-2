@@ -12,6 +12,7 @@ function calculeResult(){
 }
 
 function showResult(){
+    quizUserScore = myresult + '/' + questions.length ;
     textResult.innerText = "your result is : " + calculeResult() + '/' + questions.length;
 }
 
@@ -35,7 +36,7 @@ function showCorection(){
 
                 <div class="responce-container bg-danger">
                     <iconify-icon icon="material-symbols:note-alt-rounded" style="color: green;" ></iconify-icon>
-                    <div class="respons bg-danger">${questions[index].correctRepons}</div>
+                    <div class="respons bg-danger">${questions[index].corectRepons}</div>
                 </div>
                 <div class="line"></div>
             `;

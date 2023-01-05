@@ -5,9 +5,7 @@
     text-align: start;
     .result-container{
         background-color: rgba(115, 255, 0, 0.311);
-        .result{
-            color: $strock-color;
-        }
+        
     
         .question-container{
             margin-top: 2vh;
@@ -46,9 +44,21 @@
 
         }
     }
-    
-
-
-    
-    
 }
+
+.result{
+    color: $strock-color;
+    animation: showScore 2s ease-in;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+}
+
+@keyframes result {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+

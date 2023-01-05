@@ -9,7 +9,7 @@
         private $username = 'root';
         private $host = 'localhost';
 
-        public $id = 38;
+        public $id;
         public $table; 
         public $data;
 
@@ -34,6 +34,19 @@
             $this->pdo = new PDO($dsn, $this->username, $this->password);
         }
 
+        public function set($property, $value) {
+            if (property_exists($this, $property)) {
+                $this->$property = $value;
+            }
+        }
+        
+        public function get($property) {
+            if (property_exists($this, $property)) {
+                return $this->$property;
+            }
+            return null;
+        }
+
         public function insert() {
             try {
                 $columns = implode(", ", array_keys($this->data));
@@ -42,15 +55,15 @@
                 $stmt = $this->pdo->prepare($sql);
                 $stmt->execute($this->data);
                 return true;
-                } catch(PDOException $e) {
+            } catch(PDOException $e) {
                 echo "Error: " . $e->getMessage();
                 return false;
-                }
+            }
         }
 
         public function select($where=NULL) {
             // select the data from the database
-            $query = "SELECT * FROM $this->table $where ORDER BY RAND()";
+            $query = "SELECT * FROM $this->table $where";
             $stmt = $this->pdo->prepare($query);
             $stmt->execute();
             return $stmt->fetchAll(PDO::FETCH_OBJ);
@@ -74,6 +87,11 @@
             $query = "DELETE FROM $this->table $where";
             $stmt = $this->pdo->prepare($query);
             $stmt->execute();
+        }
+
+        public function isExist($property) {
+            $data = $this->select("WHERE $property='".$this->data[$property]."'");
+            return count($data) != 0;
         }
 }
 

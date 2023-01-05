@@ -10,14 +10,24 @@ soundOn.addEventListener('click', async () => {
 });
 
 btnStartQuiz.addEventListener('click', async () => {
-    btnStartQuiz.style.display = "none";
-    timer.style.display = "block";
-    intialaze();
-    audioPlay('../../assets/MP3/audio.mp3');
-    sleep(3800).then(() => {
-        timer.style.display = "none";
-        quizPage.style.display = "block";
-        play();
+    // Use the function with a callback
+    checkIsExist(function(response) {
+        if(response){
+            textMesgValidation.style.display = "block";
+            textMesgValidation.innerText = 'this user name is alredy exist';
+        }
+        else{
+            quizDateTimeStart = getCurrentDateTime();
+            componentsStartQuiz.style.display = "none";
+            timer.style.display = "block";
+            intialaze();
+            audioPlay('../../assets/MP3/audio.mp3');
+            sleep(3800).then(() => {
+                timer.style.display = "none";
+                quizPage.style.display = "block";
+                play();
+            });
+        }
     });
 });
 
@@ -28,10 +38,10 @@ btnStartQuiz.addEventListener('click', async () => {
 function intialaze(){
     questionIndex = 0;
     arrayWrongResponsIndexs.length = "";
-    questions = shuffleObjArray(questions);
     getQestions();
+    questions = shuffleObjArray(questions);
+    console.log(questions);
 
-    
 }    
 
 
@@ -53,9 +63,7 @@ function play(){
 
 function reponsAnimation(i , index){
     index--;
-
-    let questionWithRespos = getQestionWithResponce(questions[index].id);
-    questions[index] = questionWithRespos;
+    questions[index] = getQestionWithResponce(questions[index].id);
     console.log(questions);
     if(i == questions[index].R_C_Indis){
         animationCard(i , true);

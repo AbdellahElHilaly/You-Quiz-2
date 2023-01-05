@@ -13,6 +13,7 @@ function moveBarTime(deley , index) {
     idAnimaion = setInterval(frame, newDellay);    
     function frame() {
         if (width <=0) {
+            questions[index] = getQestionWithResponce(questions[index].id);
             wrongRespons(index);
             clearInterval(idAnimaion);
             nextQuestion();

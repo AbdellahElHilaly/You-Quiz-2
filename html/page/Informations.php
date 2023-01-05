@@ -10,4 +10,7 @@
         <li>Good luck.</li>
     </ol>
     </section>
+    <div class="text-end me-2 mb-2">
+        <button class="try-agin next" onclick="chancheContent(2)">Next</button>
+    </div>
 </div>

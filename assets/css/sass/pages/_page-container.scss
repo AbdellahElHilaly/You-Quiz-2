@@ -4,7 +4,7 @@
 @import '../components/progress-title';
 @import '../components/time-bar';
 body{
-    background-color: #EE9520;
+    background-color: $body-color ;
 }
 .page-container{
     padding: $body-pading;

@@ -3,5 +3,67 @@
     display: none;
     font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
     text-align: center;
+
+    .valiadation-container{
+        margin-top: 25vh;
+        .button-start-quize{
+            margin-bottom: 2.5vh;
+            display: none;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: orangered;
+            min-width: 10vw;
+            @include text-style();
+            border-radius: 10px;
+            border: 5px $strock-color solid;
+            &:hover{
+                background-color: darken($color: orangered, $amount: 5);
+            }
+            &:active{
+                background-color: darken($color: orangered, $amount: 15);
+                border-color: $main-color;
+            }
+            &:disabled{
+                background-color: gray;
+            }
+            @media (max-width : $max-mobile){
+                min-width: 30vw;
+            }
+        }
+        .inpute-username{
+            margin-bottom: .5vh;
+            background-color: $color-tertiary ;
+            border-radius: 15px;
+            border: 4px $strock-color solid;
+            font-weight: bolder;
+            font-size: 1.5vw;
+            text-decoration:none;
+            min-width: 15vw;
+            padding:5px 5px;
+            font-family:'Courier New', Courier, monospace;
+            &:focus{
+                background-color: lighten($color-tertiary,15%);
+            }
+        
+            @media (max-width : $max-mobile){
+                min-width: 45vw;
+                height: 5vh;
+                font-size: 4vw;
+            }
+        }
+
+        .message-validation{
+            color: $strock-color;
+            font-family: serif;
+            font-style: italic;
+            font-size: 2vw;
+            @media (max-width : $max-mobile){
+                font-size: 6vw;
+            }
+        }
+
+    }
 }
+
+
 

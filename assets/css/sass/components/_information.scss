@@ -1,5 +1,7 @@
 .documentation-body{
     margin-top: 5vh;
+    padding: 4vw;
+    height: 70%;
     li{
         @include text-style();
         text-align: start;

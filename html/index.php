@@ -12,4 +12,4 @@
 
 
 
-<?php include_once '../html/inc/footer.php'?>
+

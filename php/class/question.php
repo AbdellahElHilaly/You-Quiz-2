@@ -2,11 +2,11 @@
 
 include_once '../class/database.php';
 class Question extends MySQLDatabase{
-    public $question;
-    public $repons;
-    public $corectRepons;  
-    public $R_C_Indis;
-    public $deficulty;
+    private $question;
+    private $repons;
+    private $corectRepons;  
+    private $R_C_Indis;
+    private $deficulty;
     
     
     public function __construct($question=NULL, $repons=NULL, $reponsIndex=NULL, $corectRepons=NULL, $deficulty=NULL) {
@@ -25,48 +25,6 @@ class Question extends MySQLDatabase{
             'R_C_Indis'     =>  $this->R_C_Indis      ,
             'deficulty'     =>  $this->deficulty
         ];
-    }
-
-
-    
-    public function getQuestion() {
-        return $this->question;
-    }
-
-    public function setQuestion($question) {
-        $this->question = $question;
-    }
-
-    public function getRepons() {
-        return $this->repons;
-    }
-
-    public function setRepons($repons) {
-        $this->repons = $repons;
-    }
-
-    public function getCorectRepons() {
-        return $this->corectRepons;
-    }
-
-    public function setCorectRepons($corectRepons) {
-        $this->corectRepons = $corectRepons;
-    }
-
-    public function getRCIndis() {
-        return $this->R_C_Indis;
-    }
-
-    public function setRCIndis($R_C_Indis) {
-        $this->R_C_Indis = $R_C_Indis;
-    }
-
-    public function getDifficulty() {
-        return $this->deficulty;
-    }
-
-    public function setDifficulty($deficulty) {
-        $this->deficulty = $deficulty;
     }
 
     public function getObject($dbobject){
@@ -117,7 +75,6 @@ class Question extends MySQLDatabase{
             $questions[$i] = new Question();
             $questions[$i]->getObject($data);
             $i++;
-            
         }
         return $questions;
     }

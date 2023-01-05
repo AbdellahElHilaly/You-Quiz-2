@@ -1,8 +1,7 @@
 
 <div class="resulte-body" id="resulte-body-id">
     <section  id="resulte-section-id">
-        <div class="d-flex justify-content-around"><div class="result" id="text-result-id">no data</div>
-        <button id="btn-again-quiz" class="button-start-quize try-agin">Try again</button></div>
+        <div class="d-flex justify-content-around"><div class="result" id="text-result-id">+1</div>
         
 
         <div id="result-container" class="result-container">
@@ -17,6 +16,8 @@
             <div class="line"></div> -->
         </div>
     </section>
+    <button id="btn-again-quiz" class="try-agin next">Try again</button></div>
+
 </div>
 
-<script src="../../js/quize/result.js"></script>
+<script src="../../js/quize/play/result.js"></script>

@@ -1,13 +1,23 @@
 let audio = true;
+let textQuestion = document.getElementById('text-question-id');
+let cards = document.getElementsByTagName('card');
+let cardTexts = document.getElementsByClassName('card-text');
 let buttonCards = document.getElementsByClassName('card-button');
 let btnStartQuiz = document.getElementById('btn-start-quiz');
 let quizPage = document.getElementById('quiz-page');
 let timer = document.getElementById('timer-id');
 let soundOn = document.getElementById('sound-on-id');
 let soundOff = document.getElementById('sound-off-id');
+let userNameInput = document.getElementById('username-input-id');
+let componentsStartQuiz = document.getElementById('valiadation-container-id');
+let textMesgValidation = document.getElementById('message-validation-id');
+let quizDateTimeStart;
+let quizUserScore;
 
 
 soundOff.style.display = "none";
 timer.style.display = "none";
 let questionIndex = 0;
 quizPage.style.display = "none";
+
+let questions = new Array();
