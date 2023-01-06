@@ -34,3 +34,39 @@ header{
     }
 
 }
+
+$card-bg-color: #fff;
+$card-text-color: #000;
+cardd {
+    background-color: $card-bg-color;
+    color: $card-text-color;
+    display: inline-block;
+    padding: 1em;
+    text-align: center;
+  }
+  div {
+    & cardd {
+      font-weight: bold;
+    }
+  }
+  @mixin rounded-corners {
+    border-radius: 5px;
+  }
+  
+  cardd {
+    @include rounded-corners;
+  }
+      
+
+  @keyframes flip {
+    from {
+      transform: rotateY(0deg);
+    }
+    to {
+      transform: rotateY(360deg);
+    }
+  }
+  cardd {
+    animation: flip 1s linear infinite;
+  }
+    

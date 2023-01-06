@@ -19,3 +19,16 @@
     padding: 0;
     
 }
+
+::-webkit-scrollbar
+{
+    width: 5px;
+    background-color: darken( $body-color, 10%) ;
+    
+}
+
+::-webkit-scrollbar-thumb
+{
+    border-radius: 15px;
+    background-color: black;
+}

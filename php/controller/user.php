@@ -5,6 +5,7 @@ if(isset($_POST['chek-user-isexist'])){
     $username = $_POST['chek-user-isexist'];
 
     $user = new User($username);
+    
 
     // $username = json_encode($user);
     $exist = $user->isExist('user_name');
@@ -26,6 +27,7 @@ if(isset($_POST['save'])){
     echo json_encode($response);
     
 }
+
 
 
 

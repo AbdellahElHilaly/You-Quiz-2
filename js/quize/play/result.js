@@ -12,8 +12,12 @@ function calculeResult(){
 }
 
 function showResult(){
-    quizUserScore = myresult + '/' + questions.length ;
-    textResult.innerText = "your result is : " + calculeResult() + '/' + questions.length;
+    let right = calculeResult();
+    quizUserScore = right;
+    let wrong = questions.length - right;
+    let percentage =  (right*100)/questions.length;
+    let result = Array(right , wrong , percentage );
+    animationNumber(result);
 }
 
 let arrayWrongResponsIndexs =  new Array();
@@ -24,33 +28,56 @@ function wrongRespons(index){
 
 function showCorection(){
     resultContainer.innerHTML = '';
+    
     for(index in questions){
-
+        
         if(arrayWrongResponsIndexs.includes(Number(index))){
+            
             resultContainer.innerHTML += 
                 `
-                <div class="question-container bg-danger"> 
-                    <div class="index bg-danger">${index}</div> 
-                    <div class="question bg-danger">${questions[index].question}</div>
+                <div class="card bg-danger">
+                <div class="card-body">
+                    <h5 class="card-title "><span class="fw-bold fs-4">${Number(index)+1}- </span>${questions[index].question}</h5>
+                    <div class="card-text ">${questions[index].corectRepons}.</div>
                 </div>
-
-                <div class="responce-container bg-danger">
-                    <iconify-icon icon="material-symbols:note-alt-rounded" style="color: green;" ></iconify-icon>
-                    <div class="respons bg-danger">${questions[index].corectRepons}</div>
-                </div>
-                <div class="line"></div>
+            </div>
             `;
         }
         else {
             resultContainer.innerHTML += 
                 `
-                <div class="question-container bg-success"> 
-                    <div class="index bg-success">${index}</div> 
-                    <div class="question bg-success">${questions[index].question}</div>
+                <div class="card bg-success">
+                <div class="card-body">
+                    <h5 class="card-title "><span class="fw-bold fs-4">${Number(index)+1}- </span>${questions[index].question}</h5>
+                    <div class="card-text ">${questions[index].corectRepons}.</div>
                 </div>
-                <div class="line"></div>
+            </div>
             `;
         }
         
     }
 }
+const ps = document.getElementsByClassName('p-result');
+
+
+
+function animationNumber(result){
+        audioStop();
+        audioPlay(audioResult);
+    let i=0;
+    for (const p of ps) {
+        let intervalId = setInterval(() => updateNumber(p), 100);
+        setTimeout(() => {
+            audioPause();
+            clearInterval(intervalId);
+            p.textContent = result[i++];
+        }, 2500);
+    }
+}
+function updateNumber(p) {
+  p.textContent = Math.floor(Math.random() * 100);
+}
+    
+
+
+

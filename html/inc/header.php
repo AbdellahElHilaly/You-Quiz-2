@@ -7,7 +7,21 @@
         <div class="mask d-flex justify-content-center align-items-center " >
             
             <div class="titlel ">
-                <img  class="img-fluid" src="../assets/images/generale/Scrabble-Quiz.png" alt="">
+            <img  class="img-fluid" src="../assets/images/generale/Scrabble-Quiz.png" alt="">
+
+                <div>
+                    <cardd>Y</cardd>
+                    <cardd>O</cardd>
+                    <cardd>U</cardd>
+                    <cardd>Q</cardd>
+                    <cardd>U</cardd>
+                    <cardd>I</cardd>
+                    <cardd>Z</cardd>
+                </div>
+
+                
+
+                
                 <div class="">
                     <h1 class="mb-3 d-none">You Quiz</h1>
                     <h5 class="sous-titre mb-4">You code sprint-3 brief-2</h5>
@@ -16,5 +30,15 @@
             </div>
         </div>
     </div>
-    <!-- Background image -->
+    <!-- Background image
+
+
+
+
+
+
+
+
+
+    
 </header>

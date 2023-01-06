@@ -1,13 +1,23 @@
 soundOff.addEventListener('click', async () => {
     soundOff.style.display = "none";
     soundOn.style.display = "block";
-    audio = true;
+    audioMute(false);
+    audioResume();
+    notSound = false;
 });
+
+
 soundOn.addEventListener('click', async () => {
     soundOn.style.display = "none";
     soundOff.style.display = "block";
-    audio = false;
+    // audioPause();
+    audioMute(true);
+    notSound = true;
+
 });
+
+
+
 
 btnStartQuiz.addEventListener('click', async () => {
     // Use the function with a callback
@@ -20,8 +30,8 @@ btnStartQuiz.addEventListener('click', async () => {
             quizDateTimeStart = getCurrentDateTime();
             componentsStartQuiz.style.display = "none";
             timer.style.display = "block";
+            audioPlay(audioStart);
             intialaze();
-            audioPlay('../../assets/MP3/audio.mp3');
             sleep(3800).then(() => {
                 timer.style.display = "none";
                 quizPage.style.display = "block";
@@ -66,15 +76,17 @@ function reponsAnimation(i , index){
     questions[index] = getQestionWithResponce(questions[index].id);
     console.log(questions);
     if(i == questions[index].R_C_Indis){
+        audioStop();
+        audioPlay(audioRirghtAnswer);
         animationCard(i , true);
         calculeResult();
-        audioPlay('../../assets/MP3/aoudio-true.wav');
     }
     else {
+        audioStop();
+        audioPlay(audioWrongAnswer);
         wrongRespons(index);
         animationCard(questions[index].R_C_Indis);
         showFalseRepons(i);
-        audioPlay('../../assets/MP3/audio-false.mp3');
     }
 }
 

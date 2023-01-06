@@ -4,7 +4,7 @@
     <div id="valiadation-container-id" class="valiadation-container">
         <button id="btn-start-quiz" class="button-start-quize" disabled>Go !</button>
         <input onkeyup="validation(this.value)"  type="text" id="username-input-id" class="inpute-username" placeholder="enter your name" require>
-        <p class="message-validation" id="message-validation-id">incorect user name </p>
+        <p class="message-validation" id="message-validation-id"></p>
     </div>
     
     <section id="quiz-page" class="quiz-page">

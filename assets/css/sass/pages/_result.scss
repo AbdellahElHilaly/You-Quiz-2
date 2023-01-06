@@ -1,64 +1,73 @@
 .resulte-body{
-    @include text-style();
     display: none;
     margin-top: 2vh;
-    text-align: start;
-    .result-container{
-        background-color: rgba(115, 255, 0, 0.311);
-        
     
-        .question-container{
-            margin-top: 2vh;
-            padding-right: 2vw;
-            display: flex;
-            .index{
-                background-color: green;
-                margin-left: 2vw;
-            }
-            .question{
-                margin-left: 2vw;
+    
+.container-result {
+    border: 1px solid #333;
+    border-radius: 4px;
+    animation: border-turn 5s linear infinite;
+}
+
+
+    button{
+        width: 12vw;
+        @media (max-width : $max-mobile){
+            width: 21vw;
+        }
+
+        p {
+            font-size: 1vw;
+            font-weight: bold;
+            color: $strock-color;
+            // text-align: center;
+            @media (max-width : $max-mobile){
+                font-size: 2vw;
             }
         }
-    
-        .responce-container{
-            margin-top: .5vh;
-            padding-right: 2vw;
-            display: flex;
-            
-            iconify-icon{
-                width: 3vw;
-                margin: 1.25vh 2vw;
-                @media (max-width : $max-mobile) {
-                    width: 15vw;
-                    margin-top: 1vh;
+    }
+    .container-respons{
+        
+        height: 65vh;
+        overflow-y: scroll;
+        @media (max-width : $max-mobile){
+            height: 73vh;
+        }
+        // @media (max-width : $max-small){
+        //     height: 83vh;
+        // }
+        @media (max-width : $max-mobile){
+            height: 67vh;
+        }
 
 
-                }
-            }
+        .card{
+            margin-bottom: 5px;
+            margin-right: 5px;
         }
         
-        .line{
-            background-color: $strock-color;
-            height: 2px;
-            width: 100%;
-
-        }
     }
 }
 
-.result{
-    color: $strock-color;
-    animation: showScore 2s ease-in;
-    animation-iteration-count: infinite;
-    animation-fill-mode: forwards;
+// .result{
+//     @include text-style();
+// }
+
+.right-respons {
+    color: green;
+    font-size: 32px;
 }
 
-@keyframes result {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
+.wrong-respons {
+color: red;
+font-size: 32px;
 }
 
+.pousontage {
+color: blue;
+font-size: 32px;
+}
+.try-again{
+    color: rgb(6, 176, 254);
+    font-size: 32px;
+}
